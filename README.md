@@ -8,11 +8,12 @@
 持久性（Durability）：一旦事务完成，无论发生什么系统错误，它的结果都不应该受到影响，这样就能从任何系统崩溃中恢复过来。通常情况下，事务的结果被写到持久化存储器中。    
 ### 传播行为
 事务的第一个方面是传播行为（propagation behavior）。当事务方法被另一个事务方法调用时，必须指定事务应该如何传播。例如：方法可能继续在现有事务中运行，也可能开启一个新事务，并在自己的事务中运行。Spring定义了七种传播行为：  
-1.PROPAGATION_REQUIRED：表示当前方法必须运行在事务中。如果当前事务存在，方法将会在该事务中运行。否则，会启动一个新的事务 
-2.PROPAGATION_SUPPORTS：表示当前方法不需要事务上下文，但是如果存在当前事务的话，那么该方法会在这个事务中运行 
-3.PROPAGATION_MANDATORY：表示该方法必须在事务中运行，如果当前事务不存在，则会抛出一个异常  
-4.PROPAGATION_REQUIRED_NEW：表示当前方法必须运行在它自己的事务中。一个新的事务将被启动。如果存在当前事务，在该方法执行期间，当前事务会被挂起。如果使用JTATransactionManager的话，则需要访问TransactionManager   
-5.表示该方法不应该运行在事务中。如果存在当前事务，在该方法运行期间，当前事务将被挂起。如果使用JTATransactionManager的话，则需要访TransactionManager  6.PROPAGATION_NEVER：表示当前方法不应该运行在事务上下文中。如果当前正有一个事务在运行，则会抛出异常   
+1.PROPAGATION_REQUIRED：表示当前方法必须运行在事务中。如果当前事务存在，方法将会在该事务中运行。否则，会启动一个新的事务       
+2.PROPAGATION_SUPPORTS：表示当前方法不需要事务上下文，但是如果存在当前事务的话，那么该方法会在这个事务中运行       
+3.PROPAGATION_MANDATORY：表示该方法必须在事务中运行，如果当前事务不存在，则会抛出一个异常        
+4.PROPAGATION_REQUIRED_NEW：表示当前方法必须运行在它自己的事务中。一个新的事务将被启动。如果存在当前事务，在该方法执行期间，当前事务会被挂起。如果使用JTATransactionManager的话，则需要访问TransactionManager         
+5.表示该方法不应该运行在事务中。如果存在当前事务，在该方法运行期间，当前事务将被挂起。如果使用JTATransactionManager的话，则需要访TransactionManager          
+6.PROPAGATION_NEVER：表示当前方法不应该运行在事务上下文中。如果当前正有一个事务在运行，则会抛出异常         
 7.PROPAGATION_NESTED： 表示如果当前已经存在一个事务，那么该方法将会在嵌套事务中运行。嵌套的事务可以独立于当前事务进行单独地提交或回滚。如果当前事务不存在，那么其行为与PROPAGATION_REQUIRED一样。注意各厂商对这种传播行为的支持是有所差异的。可以参考资源管理器的文档来确认它们是否支持嵌套事务    
 ### 隔离级别
 事务的第二个维度就是隔离级别（isolation level）。隔离级别定义了一个事务可能受其他并发事务影响的程度。  
