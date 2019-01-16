@@ -3,4 +3,4 @@
 后端：扎实的java面向对象编程知识、熟悉常用设计模式、熟悉常用的数据结构及算法，
       熟悉Spring mvc、Spring boot等mvc框架，了解zeroc ice、dubbo等RPC框架，
       熟悉spring cloud系列组件和微服架构，熟悉关系型数据库mysql、非关系型数据库mongodb，熟悉缓存Redis，熟悉消息中间件RabbitMq
-运维：熟悉版本管理控制工具svn、git，熟悉Linux基础知识、了解代理服务nginx、高可用组件keeplived等。
+运维：熟悉版本管理控制工具svn、git，熟悉Linux基础知识、网络基础知识、了解代理服务nginx、高可用组件keeplived等。
